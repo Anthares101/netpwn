@@ -4,7 +4,7 @@ from config import SHELL_STABILIZATION_METHODS
 from pwnlib.tubes.listen import listen
 
 
-class ListennerService:
+class ListenerService:
     def __init__(self, lport: int):
         self.lport = lport
 
@@ -13,9 +13,9 @@ class ListennerService:
 
         return listener
 
-    def is_rev_shell(self, listenner: listen):
-        data_received = listenner.recv(timeout=0.5)
-        listenner.unrecv(data_received)
+    def is_rev_shell(self, listener: listen):
+        data_received = listener.recv(timeout=0.5)
+        listener.unrecv(data_received)
         # Check that we got a shell
         if (not b'$' in data_received and not b'Windows' in data_received):
             return False
@@ -40,7 +40,7 @@ class ListennerService:
         shell.sendline(b""" alias ls='ls --color=auto'""")
         shell.sendline(b'export TERM=xterm')
         shell.sendline(b'history -c')
-        shell.clean()
+        shell.clean(timeout=1)
     
     def find_pty_spawn_vector(self, shell: listen) -> str:
         shell.clean()

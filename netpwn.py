@@ -5,7 +5,7 @@ from argparse import Namespace
 from pwnlib.log import install_default_handler, getLogger
 from pwnlib.tubes.listen import listen
 from services import (
-    ListennerService,
+    ListenerService,
     ParametersParserService,
     TerminalService
 )
@@ -15,15 +15,15 @@ terminal_service = TerminalService()
 install_default_handler()
 log = getLogger('pwnlib')
 
-def handler(listenner: listen):
-    while listenner.connected('recv'): pass
-    listenner.shutdown('send')
+def handler(listener: listen):
+    while listener.connected('recv'): pass
+    listener.shutdown('send')
 
     # Restore terminal conf and exit
     terminal_service.restore_tty()
 
     log.setLevel(1)
-    log.info(f'Closed connection to {listenner.rhost} port {listenner.rport}')
+    log.info(f'Closed connection to {listener.rhost} port {listener.rport}')
     os._exit(0)
 
 
@@ -31,21 +31,21 @@ def main(args: Namespace):
     lport = args.lport
     no_pty = args.no_pty
 
-    listenner_service = ListennerService(lport)
-    listenner = listenner_service.prepare_listener()
-    listenner.wait_for_connection()
+    listener_service = ListenerService(lport)
+    listener = listener_service.prepare_listener()
+    listener.wait_for_connection()
 
-    if(listenner_service.is_rev_shell(listenner) and listenner_service.can_upgrade_shell(listenner) and not no_pty):
+    if(listener_service.is_rev_shell(listener) and listener_service.can_upgrade_shell(listener) and not no_pty):
         with log.progress('Trying to stabilize the shell...') as p:
             try:
-                listenner_service.upgrade_shell(listenner)
+                listener_service.upgrade_shell(listener)
                 terminal_service.pty = True
                 p.success('Shell stabilized!')
             except:
                 p.failure('Shell stabilization not possible, a non pty shell will be provided')
            
     # Start handler to control the closing
-    handler_thread = threading.Thread(target=handler, args=(listenner,))
+    handler_thread = threading.Thread(target=handler, args=(listener,))
     handler_thread.setDaemon(True)
     handler_thread.start()
     
@@ -54,11 +54,11 @@ def main(args: Namespace):
     log.setLevel('error')
     if(terminal_service.pty):
         terminal_service.set_raw_mode()
-        listenner.sendline(b'') # Make the prompt appear
-    listenner.interactive()
+        listener.sendline(b'') # Make the prompt appear
+    listener.interactive()
 
 if __name__ == '__main__':
-    print('Netpwn  - A netcat listenner alternative\n')
+    print('Netpwn  - A netcat listener alternative\n')
 
     parameterParserService = ParametersParserService()
     args = parameterParserService.parse_params()
