@@ -26,7 +26,6 @@ jobs:
         run: |
           cd ${{ secrets.PYPI_PACKAGE_NAME }}
           python3 -m unittest
-          cd ..
 
       - name: "Builds and uploads to PyPI"
         run: |

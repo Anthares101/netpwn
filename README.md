@@ -4,15 +4,9 @@
 
 The idea of this Linux tool is to be an alternative to a Netcat listener but with the ability to determine if the received conection is a shell or not. If the conection is a shell Netpwn will also try to stabilize it to get a pty (Only Linux and MacOS shells).
 
-## Requirements
+## Installation
 
-You need Python 3 installed in your system and also Pwntools, that can be installed executing the next command (Keep in mind that this tool only works in Linux):
-
-```bash
-pip3 install -r requirements.txt
-```
-
-You can use a virtual env to install the dependencies or intall them system wide.
+Just execute `pip3 install netpwn` and enjoy!
 
 ## Usage
 

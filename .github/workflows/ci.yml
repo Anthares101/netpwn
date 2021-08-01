@@ -14,10 +14,9 @@ jobs:
           python-version: "3.8"
 
       - name: Install deps
-        run: |
-          cd ${{ secrets.PYPI_PACKAGE_NAME }}
-          pip3 install -r requirements.txt
+        run: pip3 install -r ${{ secrets.PYPI_PACKAGE_NAME }}/requirements.txt
 
       - name: Run tests
         run: |
+          cd ${{ secrets.PYPI_PACKAGE_NAME }}
           python3 -m unittest
