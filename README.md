@@ -17,7 +17,7 @@ To launch the testing suite just execute `python3 -m unittest` after installatio
 ```
 Netpwn  - A netcat listener alternative
 
-usage: netpwn.py [-h] [-v] [--no-pty] [-P LPORT]
+usage: netpwn [-h] [-v] [--no-pty] [-P LPORT]
 
 A listener capable of stabilize Linux and MacOS reverse shells automatically
 
