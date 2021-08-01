@@ -2,7 +2,7 @@ import unittest, sys
 import unittest.mock
 from argparse import Namespace
 from io import StringIO
-from ..services import ParametersParserService
+from services import ParametersParserService
 
 
 class ParametersParserServiceTest(unittest.TestCase):

@@ -1,14 +1,21 @@
 #!/usr/bin/env python3
 
-import os, threading
+import os
+# Avoid import problems
+abspath = os.path.abspath(__file__)
+dname = os.path.dirname(abspath)
+os.chdir(dname)
+
+import threading
 from argparse import Namespace
 from pwnlib.log import install_default_handler, getLogger
 from pwnlib.tubes.listen import listen
-from .services import (
+from services import (
     ListenerService,
     ParametersParserService,
     TerminalService
 )
+
 
 # Init pwntools stuff and safe terminal conf
 terminal_service = TerminalService()

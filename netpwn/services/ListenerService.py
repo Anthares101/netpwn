@@ -1,6 +1,4 @@
-import requests
-import base64
-from ..config import SHELL_STABILIZATION_METHODS
+from config import SHELL_STABILIZATION_METHODS
 from pwnlib.tubes.listen import listen
 
 
