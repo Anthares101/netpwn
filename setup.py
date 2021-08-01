@@ -11,4 +11,8 @@ setup(
     install_requires=[
           'pwntools',
       ],
+    entry_points='''
+        [console_scripts]
+        netpwn=netpwn.netpwn:main
+    ''',
 )
