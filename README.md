@@ -10,8 +10,6 @@ Just execute `pip3 install netpwn` and enjoy!
 
 ## Usage
 
-If you have all the requirements you can start playing! You can add the repository folder to your `PATH` and execute the tool everywhere.
-
 ```
 Netpwn  - A netcat listener alternative
 
