@@ -28,7 +28,7 @@ def handler(listener: listen):
     os._exit(0)
 
 
-def main(args: Namespace):
+def netpwn(args: Namespace):
     lport = args.lport
     no_pty = args.no_pty
 
@@ -58,18 +58,18 @@ def main(args: Namespace):
         listener.sendline(b'') # Make the prompt appear
     listener.interactive()
     
-def entrypoint():
+def main():
     print('Netpwn  - A netcat listener alternative\n')
 
     parameterParserService = ParametersParserService()
     args = parameterParserService.parse_params()
 
     try:
-        main(args)
+        netpwn(args)
     except KeyboardInterrupt:
         log.failure('Interrupted')
     except Exception as error:
         log.failure(error.__str__())
 
 if __name__ == '__main__':
-    entrypoint()
+    main()

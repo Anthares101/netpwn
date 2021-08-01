@@ -15,6 +15,6 @@ setup(
       ],
     entry_points='''
         [console_scripts]
-        netpwn=netpwn.netpwn:entrypoint
+        netpwn=netpwn.__main__:main
     ''',
 )
