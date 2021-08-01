@@ -4,7 +4,7 @@ import os, threading
 from argparse import Namespace
 from pwnlib.log import install_default_handler, getLogger
 from pwnlib.tubes.listen import listen
-from services import (
+from .services import (
     ListenerService,
     ParametersParserService,
     TerminalService
@@ -56,8 +56,8 @@ def main(args: Namespace):
         terminal_service.set_raw_mode()
         listener.sendline(b'') # Make the prompt appear
     listener.interactive()
-
-if __name__ == '__main__':
+    
+def entrypoint():
     print('Netpwn  - A netcat listener alternative\n')
 
     parameterParserService = ParametersParserService()
@@ -69,3 +69,6 @@ if __name__ == '__main__':
         log.failure('Interrupted')
     except Exception as error:
         log.failure(error.__str__())
+
+if __name__ == '__main__':
+    entrypoint()

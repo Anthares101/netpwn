@@ -1,7 +1,7 @@
 import unittest
 from services import ListenerService
 from pwnlib.tubes.remote import remote
-from config import SHELL_STABILIZATION_METHODS
+from ..config import SHELL_STABILIZATION_METHODS
 
 
 class ListenerServiceTest(unittest.TestCase):

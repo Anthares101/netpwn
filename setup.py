@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='netpwn',
-    version='1.0.post4',
+    version='1.0.post5',
     license='GPL-2.0',
     author="Ángel Heredia",
     packages=find_packages(exclude=("*tests*",)),
@@ -13,6 +13,6 @@ setup(
       ],
     entry_points='''
         [console_scripts]
-        netpwn=netpwn.netpwn:main
+        netpwn=netpwn.netpwn:entrypoint
     ''',
 )
