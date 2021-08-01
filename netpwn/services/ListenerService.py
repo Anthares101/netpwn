@@ -1,5 +1,5 @@
 from pwnlib.tubes.listen import listen
-from .config import SHELL_STABILIZATION_METHODS
+from netpwn.config import SHELL_STABILIZATION_METHODS
 
 
 class ListenerService:

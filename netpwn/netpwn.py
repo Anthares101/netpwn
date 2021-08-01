@@ -4,7 +4,7 @@ import os, threading
 from argparse import Namespace
 from pwnlib.log import install_default_handler, getLogger
 from pwnlib.tubes.listen import listen
-from .services import (
+from netpwn.services import (
     ListenerService,
     ParametersParserService,
     TerminalService

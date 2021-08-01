@@ -2,11 +2,13 @@ from setuptools import setup, find_packages
 
 setup(
     name='netpwn',
-    version='1.0.post7',
+    version='1.0.post9',
     license='GPL-2.0',
-    author="Ángel Heredia",
-    packages=find_packages(exclude=("*tests*",)),
+    description='A netcat listener alternative with automatic shell stabilization.',
+    author='Ángel Heredia',
+    packages=find_packages(),
     url='https://github.com/anthares101/netpwn',
+    download_url="https://github.com/anthares101/netpwn/releases",
     keywords='windows macos linux shell reverse-shell tool hacking netcat tty pty cybersecurity reverse pwntools hacktoberfest kali',
     install_requires=[
           'pwntools',

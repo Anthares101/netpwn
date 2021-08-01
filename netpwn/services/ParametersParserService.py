@@ -1,5 +1,5 @@
 import argparse
-from .config import VERSION
+from netpwn.config import VERSION
 
 
 class ParametersParserService:
