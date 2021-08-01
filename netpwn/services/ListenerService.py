@@ -1,5 +1,5 @@
-from config import SHELL_STABILIZATION_METHODS
 from pwnlib.tubes.listen import listen
+from .config import SHELL_STABILIZATION_METHODS
 
 
 class ListenerService:

@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='netpwn',
-    version='1.0.post6',
+    version='1.0.post7',
     license='GPL-2.0',
     author="Ángel Heredia",
     packages=find_packages(exclude=("*tests*",)),

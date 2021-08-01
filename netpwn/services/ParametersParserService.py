@@ -1,5 +1,5 @@
 import argparse
-from config import VERSION
+from .config import VERSION
 
 
 class ParametersParserService:

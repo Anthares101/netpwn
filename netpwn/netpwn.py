@@ -1,16 +1,10 @@
 #!/usr/bin/env python3
 
-import os
-# Avoid import problems
-abspath = os.path.abspath(__file__)
-dname = os.path.dirname(abspath)
-os.chdir(dname)
-
-import threading
+import os, threading
 from argparse import Namespace
 from pwnlib.log import install_default_handler, getLogger
 from pwnlib.tubes.listen import listen
-from services import (
+from .services import (
     ListenerService,
     ParametersParserService,
     TerminalService
