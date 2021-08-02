@@ -6,11 +6,7 @@ The idea of this Linux tool is to be an alternative to a Netcat listener but wit
 
 ## Installation
 
-Just execute `pip3 install netpwn` and enjoy! Also, you can clone the repository and execute `pip3 install -r requirements.txt`.
-
-## Testing
-
-To launch the testing suite just execute `python3 -m unittest` after installation.
+Just execute `pip3 install netpwn` and enjoy! You can use a virtual env or intall it system wide.
 
 ## Usage
 
