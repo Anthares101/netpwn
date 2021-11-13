@@ -12,10 +12,10 @@ class ListenerService:
         return listener
 
     def is_rev_shell(self, listener: listen):
-        data_received = listener.recvline_endswith(b'$',b'#', timeout=1)
+        data_received = listener.recvrepeat(timeout=1)
         listener.unrecv(data_received)
         # Check that we got a shell
-        if (data_received):
+        if (not b'$' in data_received and not b'Windows' in data_received):
             return False
         return True
 
