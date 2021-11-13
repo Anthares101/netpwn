@@ -3,7 +3,7 @@ VERSION = '1.1'
 SHELL_STABILIZATION_METHODS = {
     'python': {
         'bash': """python -c 'import pty; pty.spawn("/bin/bash")'""",
-        'sh': """python -c 'import pty; pty.spawn("/bin/bash")'"""
+        'sh': """python -c 'import pty; pty.spawn("/bin/sh")'"""
     },
     'python3': {
         'bash': """python3 -c 'import pty; pty.spawn("/bin/bash")'""",

@@ -1,4 +1,4 @@
-<img alt="Test status" src="https://img.shields.io/github/workflow/status/anthares101/netpwn/CI?style=for-the-badge"> <img alt="Version v1.1" src="https://img.shields.io/badge/version-v1.1-blue?style=for-the-badge"> <img alt="GPL-2.0 license" src="https://img.shields.io/github/license/anthares101/netpwn?style=for-the-badge">
+<img alt="Test status" src="https://img.shields.io/github/workflow/status/anthares101/netpwn/CI?style=for-the-badge"> <img alt="Version v1.2" src="https://img.shields.io/badge/version-v1.2-blue?style=for-the-badge"> <img alt="GPL-2.0 license" src="https://img.shields.io/github/license/anthares101/netpwn?style=for-the-badge">
 
 # Netpwn - A netcat listener alternative
 
