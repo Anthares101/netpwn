@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='netpwn',
-    version='1.3',
+    version='1.4',
     license='GPL-2.0',
     description='A netcat listener alternative with automatic shell stabilization.',
     author='Ángel Heredia',

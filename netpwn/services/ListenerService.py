@@ -15,7 +15,7 @@ class ListenerService:
         data_received = listener.recvrepeat(timeout=1)
         listener.unrecv(data_received)
         # Check that we got a shell
-        if (not b'$' in data_received and not b'Windows' in data_received):
+        if (not b'$' in data_received and not b'#' in data_received and not b'Windows' in data_received):
             return False
         return True
 
@@ -45,11 +45,11 @@ class ListenerService:
 
         for binary in SHELL_STABILIZATION_METHODS:
             shell.sendline(f'which {binary}'.encode())
-            result = shell.recvline(timeout=2).decode()
+            result = shell.recvrepeat(timeout=2).decode()
             if(binary in result and 'not found' not in result):
                 for shell_binary in SHELL_STABILIZATION_METHODS[binary]:
                     shell.sendline(f'which {shell_binary}'.encode())
-                    result = shell.recvline(timeout=2).decode()
+                    result = shell.recvrepeat(timeout=2).decode()
                     if(shell_binary in result and 'not found' not in result):
                         return SHELL_STABILIZATION_METHODS[binary][shell_binary]
             shell.clean()
